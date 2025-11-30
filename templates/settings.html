@@ -342,6 +342,16 @@
                                         </div>
                                     </div>
                                 </label>
+                                <label class="relative">
+                                    <input type="radio" name="dns_provider" value="hostinger" class="sr-only peer">
+                                    <div class="p-2 border-2 border-gray-200 dark:border-gray-600 rounded-lg cursor-pointer transition-all peer-checked:border-primary peer-checked:bg-blue-50 dark:bg-blue-900/20 dark:peer-checked:bg-blue-900/30 hover:border-gray-300 dark:hover:border-gray-500">
+                                        <div class="text-center">
+                                            <i class="fas fa-server text-lg text-purple-500 mb-1"></i>
+                                            <div class="text-xs font-medium dark:text-white">Hostinger</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1" id="hostinger-status">Not configured</div>
+                                        </div>
+                                    </div>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -1033,6 +1043,27 @@
                             </div>
                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
                                 Generate an API token at <a href="https://www.dynu.com/en-US/ControlPanel/APICredentials" target="_blank" class="text-primary hover:underline">Dynu Control Panel</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hostinger Configuration -->
+                    <div id="hostinger-config" class="dns-config hidden">
+                        <div class="border border-orange-200 dark:border-orange-600 rounded-lg p-4 bg-orange-50 dark:bg-orange-900/20">
+                            <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-4">
+                                <i class="fas fa-server mr-2 text-purple-500"></i>
+                                Hostinger DNS Configuration
+                            </h4>
+                            <div>
+                                <label for="hostinger_api_token" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    API Token
+                                </label>
+                                <input type="password" id="hostinger_api_token" name="hostinger_api_token" 
+                                       class="mt-1 block w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary"
+                                       placeholder="Your Hostinger API token">
+                            </div>
+                            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                                Generate an API token from your <a href="https://www.hostinger.com/cpanel" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Hostinger Control Panel</a> under Account Settings &gt; API.
                             </p>
                         </div>
                     </div>
@@ -1970,7 +2001,8 @@
                 'he-ddns': ['he_ddns_username', 'he_ddns_password'],
                 'dynudns': ['dynudns_token'],
                 'dnsmadeeasy': ['dnsmadeeasy_api_key', 'dnsmadeeasy_secret_key'],
-                'nsone': ['nsone_api_key']
+                'nsone': ['nsone_api_key'],
+                'hostinger': ['hostinger_api_token']
             };
             
             return fieldMappings[provider] || [];
@@ -2135,7 +2167,7 @@
                 'cloudflare', 'route53', 'azure', 'google', 'powerdns', 
                 'digitalocean', 'linode', 'gandi', 'ovh', 'namecheap',
                 'vultr', 'dnsmadeeasy', 'nsone', 'rfc2136', 'hetzner',
-                'porkbun', 'godaddy', 'he-ddns', 'dynudns'
+                'porkbun', 'godaddy', 'he-ddns', 'dynudns', 'hostinger'
             ];
             
             providers.forEach(provider => {
@@ -2350,7 +2382,8 @@
                 'he-ddns': 'Hurricane Electric',
                 'dynudns': 'Dynu',
                 'dnsmadeeasy': 'DNS Made Easy',
-                'nsone': 'NS1'
+                'nsone': 'NS1',
+                'hostinger': 'Hostinger'
             };
             modalTitle.textContent = `Add ${providerNames[provider] || provider} Account`;
             
@@ -2530,6 +2563,9 @@
                 ],
                 'nsone': [
                     { name: 'api_token', label: 'API Token', type: 'password', placeholder: 'Your NS1 API token', required: true }
+                ],
+                'hostinger': [
+                    { name: 'api_token', label: 'API Token', type: 'password', placeholder: 'Your Hostinger API token', required: true }
                 ]
             };
             

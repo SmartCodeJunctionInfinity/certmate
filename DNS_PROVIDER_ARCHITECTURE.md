@@ -38,15 +38,18 @@ CertMate implements a **modular, extensible DNS provider architecture** supporti
 14. **Porkbun** - `certbot-dns-porkbun` - Domain registrar with DNS
 15. **GoDaddy** - `certbot-dns-godaddy` - Domain registrar
 
+### Web Hosting Providers
+16. **Hostinger** - `certbot-dns-hostinger` - Web hosting provider
+
 ### Regional Providers
-16. **OVH** - `certbot-dns-ovh` - European hosting
-17. **ArvanCloud** - `certbot-dns-arvancloud` - Iranian cloud provider
+17. **OVH** - `certbot-dns-ovh` - European hosting
+18. **ArvanCloud** - `certbot-dns-arvancloud` - Iranian cloud provider
 
 ### Specialized Providers
-18. **RFC2136** - `certbot-dns-rfc2136` - Standard DNS update protocol (BIND-compatible)
-19. **ACME-DNS** - `certbot-acme-dns` - Generic ACME-DNS server
-20. **Hurricane Electric** - `certbot-dns-he-ddns` - Free DNS hosting
-21. **Dynu** - `certbot-dns-dynudns` - Dynamic DNS service
+19. **RFC2136** - `certbot-dns-rfc2136` - Standard DNS update protocol (BIND-compatible)
+20. **ACME-DNS** - `certbot-acme-dns` - Generic ACME-DNS server
+21. **Hurricane Electric** - `certbot-dns-he-ddns` - Free DNS hosting
+22. **Dynu** - `certbot-dns-dynudns` - Dynamic DNS service
 
 ---
 
@@ -202,6 +205,7 @@ POWERDNS_API_KEY=your_key
 | **dynudns** | `token` |
 | **arvancloud** | `api_key` |
 | **acme-dns** | `api_url`, `username`, `password`, `subdomain` |
+| **hostinger** | `api_token` |
 
 ---
 

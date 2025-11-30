@@ -52,14 +52,16 @@ _DNS_PROVIDER_CREDENTIALS = {
     'porkbun': ['api_key', 'secret_key'],
     'godaddy': ['api_key', 'secret'],
     'he-ddns': ['username', 'password'],
-    'dynudns': ['token']
+    'dynudns': ['token'],
+    'hostinger': ['api_token']
 }
 
 # A mapping of multi-provider names to their certbot plugin .ini filename.
 _MULTI_PROVIDER_PLUGIN_FILES = {
     'vultr': 'vultr.ini', 'dnsmadeeasy': 'dnsmadeeasy.ini', 'nsone': 'nsone.ini',
     'rfc2136': 'rfc2136.ini', 'hetzner': 'hetzner.ini', 'porkbun': 'porkbun.ini',
-    'godaddy': 'godaddy.ini', 'he-ddns': 'he-ddns.ini', 'dynudns': 'dynudns.ini'
+    'godaddy': 'godaddy.ini', 'he-ddns': 'he-ddns.ini', 'dynudns': 'dynudns.ini',
+    'hostinger': 'hostinger.ini'
 }
 
 # A data-driven template for building multi-provider config files.
@@ -80,6 +82,7 @@ _MULTI_PROVIDER_TEMPLATE_MAP = {
     'godaddy': {'dns_godaddy_key': 'api_key', 'dns_godaddy_secret': 'secret'},
     'he-ddns': {'dns_he_ddns_username': 'username', 'dns_he_ddns_password': 'password'},
     'dynudns': {'dns_dynudns_token': 'token'},
+    'hostinger': {'dns_hostinger_api_token': 'api_token'},
 }
 
 
@@ -358,6 +361,10 @@ def create_acme_dns_config(api_url: str, username: str, password: str, subdomain
     }}
 }}"""
     return _create_config_file("acme-dns", content)
+
+def create_hostinger_config(api_token: str) -> Path:
+    """Create Hostinger DNS credentials file."""
+    return _create_config_file("hostinger", f"dns_hostinger_api_token = {api_token}\n")
 
 def create_multi_provider_config(provider: str, config_data: Dict[str, Any]) -> Optional[Path]:
     """
