@@ -28,6 +28,9 @@ DOMAIN REGISTRARS:
   14. Porkbun                certbot-dns-porkbun
   15. GoDaddy                certbot-dns-godaddy
 
+WEB HOSTING PROVIDERS:
+  16. Hostinger              certbot-dns-hostinger
+
 REGIONAL PROVIDERS:
   16. OVH                    certbot-dns-ovh
   17. ArvanCloud             certbot-dns-arvancloud
@@ -69,6 +72,9 @@ Single-field providers:
   • hetzner:                api_token
   • nsone:                  api_key
   • arvancloud:             api_key
+
+Single-field providers (continued):
+  • hostinger:              api_token
 
 Two-field providers:
   • route53:                access_key_id, secret_access_key (+ region)

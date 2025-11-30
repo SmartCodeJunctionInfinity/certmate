@@ -17,6 +17,9 @@ certbot-dns-namecheap==2.11.0
 certbot-dns-porkbun==2.11.0
 certbot-dns-godaddy==2.11.0
 
+# Web hosting providers
+certbot-dns-hostinger
+
 # Specialized DNS services
 certbot-dns-dnsmadeeasy==2.11.0
 certbot-dns-nsone==2.11.0

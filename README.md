@@ -24,7 +24,7 @@
 CertMate solves the complexity of SSL certificate management in modern distributed architectures. Whether you're running a single application or managing certificates across multiple datacenters, CertMate provides:
 
 - **🔄 Zero-Downtime Automation** - Certificates renew automatically 30 days before expiry
-- **🌐 Multi-Cloud Support** - Works with 19 DNS providers (Cloudflare, AWS, Azure, GCP, Hetzner, Porkbun, GoDaddy, and more)
+- **🌐 Multi-Cloud Support** - Works with 23 DNS providers (Cloudflare, AWS, Azure, GCP, Hetzner, Porkbun, GoDaddy, Hostinger, and more)
 - **🚀 Enterprise-Ready** - Docker, Kubernetes, REST API, and monitoring built-in
 - **📦 Simple Integration** - One-URL certificate downloads for easy automation
 - **🔒 Security-First** - Bearer token authentication, secure file permissions, audit logging
@@ -118,6 +118,7 @@ CertMate supports **19 DNS providers** through Let's Encrypt DNS-01 challenge vi
 | ** Hetzner** | API Token | ➖ Single | European cloud hosting | ✅ **Stable** |
 | **🟡 Porkbun** | API Key, Secret Key | ➖ Single | Domain registrar with DNS | ✅ **Stable** |
 | **🟢 GoDaddy** | API Key, Secret | ➖ Single | Popular domain registrar | ✅ **Stable** |
+| **🟣 Hostinger** | API Token | ➖ Single | Web hosting provider | ✅ **Stable** |
 | **🔵 Hurricane Electric** | Username, Password | ➖ Single | Free DNS hosting | ✅ **Stable** |
 | **🔶 Dynu** | API Token | ➖ Single | Dynamic DNS service | ✅ **Stable** |
 
@@ -126,7 +127,8 @@ CertMate supports **19 DNS providers** through Let's Encrypt DNS-01 challenge vi
 - **Enterprise Multi-Account**: Cloudflare, AWS Route53, Azure DNS, Google Cloud DNS, DigitalOcean, PowerDNS, RFC2136
 - **Cloud Providers**: AWS Route53, Azure DNS, Google Cloud DNS, DigitalOcean, Linode, Vultr, Hetzner
 - **Enterprise DNS**: Cloudflare, DNS Made Easy, NS1, PowerDNS
-- **Domain Registrars**: Gandi, OVH, Namecheap, Porkbun, GoDaddy  
+- **Domain Registrars**: Gandi, OVH, Namecheap, Porkbun, GoDaddy
+- **Web Hosting**: Hostinger
 - **European Providers**: OVH, Gandi, Hetzner
 - **Free Services**: Hurricane Electric, Dynu
 - **Standard Protocols**: RFC2136 (for BIND and compatible servers)

@@ -419,7 +419,8 @@ class SettingsManager:
                 'he-ddns': ['username', 'password'],
                 'arvancloud': ['api_key'],
                 'infomaniak': ['api_token'],
-                'acme-dns': ['api_url', 'username', 'password', 'subdomain']
+                'acme-dns': ['api_url', 'username', 'password', 'subdomain'],
+                'hostinger': ['api_token']
             }
             
             # Check if migration is needed

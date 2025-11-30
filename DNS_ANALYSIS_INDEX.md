@@ -124,18 +124,19 @@ DNS_ANALYSIS_INDEX.md (You are here)
 
 ## Supported Providers Summary
 
-**Total:** 21 DNS Providers
+**Total:** 23 DNS Providers
 
 ### By Category
 - **Major Cloud:** Cloudflare, AWS Route53, Google Cloud, Azure (4)
 - **Enterprise:** PowerDNS, DNS Made Easy, NS1 (3)
 - **Cloud Infrastructure:** DigitalOcean, Linode, Vultr, Hetzner (4)
 - **Registrars:** Gandi, Namecheap, Porkbun, GoDaddy (4)
+- **Web Hosting:** Hostinger (1)
 - **Regional:** OVH, ArvanCloud (2)
-- **Specialized:** RFC2136, ACME-DNS, Hurricane Electric, Dynu (4)
+- **Specialized:** RFC2136, ACME-DNS, Hurricane Electric, Dynu, Infomaniak (5)
 
 ### By Features
-- **Single-field credentials:** Cloudflare, DigitalOcean, Linode, Gandi, Vultr, Hetzner, NS1, ArvanCloud
+- **Single-field credentials:** Cloudflare, DigitalOcean, Linode, Gandi, Vultr, Hetzner, NS1, ArvanCloud, Hostinger
 - **Multi-field credentials:** Route53, Azure, Google Cloud, PowerDNS, OVH, Namecheap, RFC2136, ACME-DNS, etc.
 - **Environment variables:** Route53 (AWS_*), Azure (AZURE_*), Google (GOOGLE_*)
 - **Environment-only:** PowerDNS (POWERDNS_*), Cloudflare (CLOUDFLARE_TOKEN)
