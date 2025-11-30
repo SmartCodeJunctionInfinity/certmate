@@ -17,7 +17,7 @@ from .utils import (
     create_powerdns_config, create_digitalocean_config, create_linode_config,
     create_gandi_config, create_ovh_config, create_namecheap_config,
     create_arvancloud_config, create_infomaniak_config, create_acme_dns_config,
-    create_multi_provider_config
+    create_hostinger_config, create_multi_provider_config
 )
 
 logger = logging.getLogger(__name__)
@@ -83,7 +83,8 @@ class CertificateManager:
             'namecheap': 'create_namecheap_config',
             'arvancloud': 'create_arvancloud_config',
             'infomaniak': 'create_infomaniak_config',
-            'acme-dns': 'create_acme_dns_config'
+            'acme-dns': 'create_acme_dns_config',
+            'hostinger': 'create_hostinger_config'
         }
         
         # Try to get function from app module for test compatibility
@@ -144,6 +145,8 @@ class CertificateManager:
                         dns_config.get('password', ''),
                         dns_config.get('subdomain', ''),
                     )
+                elif dns_provider == 'hostinger':
+                    return config_func(dns_config.get('api_token', ''))
                 else:
                     # Multi-provider config: (provider, config_dict)
                     return config_func(dns_provider, dns_config)
@@ -201,6 +204,8 @@ class CertificateManager:
                 dns_config.get('password', ''),
                 dns_config.get('subdomain', ''),
             )
+        elif dns_provider == 'hostinger':
+            return create_hostinger_config(dns_config.get('api_token', ''))
         else:
             return create_multi_provider_config(dns_provider, dns_config)
 
@@ -446,7 +451,7 @@ class CertificateManager:
                 route53_env_set = True
                 plugin_name = 'dns-route53'
                 
-            elif dns_provider in ['azure', 'google', 'powerdns', 'digitalocean', 'linode', 'gandi', 'ovh', 'namecheap', 'arvancloud', 'infomaniak', 'acme-dns']:
+            elif dns_provider in ['azure', 'google', 'powerdns', 'digitalocean', 'linode', 'gandi', 'ovh', 'namecheap', 'arvancloud', 'infomaniak', 'acme-dns', 'hostinger']:
                 # Use compatibility function for config creation
                 credentials_file = self._create_dns_config_compat(dns_provider, dns_config)
                 plugin_name = f'dns-{dns_provider}'
@@ -501,7 +506,8 @@ class CertificateManager:
                 'namecheap': 300,
                 'arvancloud': 120,
                 'infomaniak': 300,
-                'acme-dns': 30
+                'acme-dns': 30,
+                'hostinger': 120
             }
             propagation_time = int(propagation_map.get(dns_provider, default_map.get(dns_provider, 120)))
             certbot_cmd.extend([f'--{plugin_name}-propagation-seconds', str(propagation_time)])
