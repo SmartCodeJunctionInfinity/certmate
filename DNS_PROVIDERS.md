@@ -261,7 +261,7 @@ curl -X POST http://localhost:5000/api/certificates/create \
 
 ## 🚀 How Provider Support Works
 
-CertMate uses individual, well-maintained certbot plugins for maximum reliability. All 23 supported providers use dedicated certbot plugins, ensuring stability and consistent behavior across all DNS providers.
+CertMate uses individual certbot plugins for maximum reliability. All 23 supported providers use certbot plugins (either provider-specific or protocol-based like RFC2136), ensuring stability and consistent behavior across all DNS providers.
 
 ## 🔍 Provider Detection Logic
 
